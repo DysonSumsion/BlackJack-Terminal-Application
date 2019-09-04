@@ -1,262 +1,262 @@
 exports.deck = {
   cards: [{
       type: "Ace",
-      symbol: "Spade",
+      suit: "Spade",
       value: 11
     },
     {
       type: "Two",
-      symbol: "Spade",
+      suit: "Spade",
       value: 2
     },
     {
       type: "Three",
-      symbol: "Spade",
+      suit: "Spade",
       value: 3
     },
     {
       type: "Four",
-      symbol: "Spade",
+      suit: "Spade",
       value: 4
     },
     {
       type: "Five",
-      symbol: "Spade",
+      suit: "Spade",
       value: 5
     },
     {
       type: "Six",
-      symbol: "Spade",
+      suit: "Spade",
       value: 6
     },
     {
       type: "Seven",
-      symbol: "Spade",
+      suit: "Spade",
       value: 7
     },
     {
       type: "Eight",
-      symbol: "Spade",
+      suit: "Spade",
       value: 8
     },
     {
       type: "Nine",
-      symbol: "Spade",
+      suit: "Spade",
       value: 9
     },
     {
       type: "Ten",
-      symbol: "Spade",
+      suit: "Spade",
       value: 10
     },
     {
       type: "Jack",
-      symbol: "Spade",
+      suit: "Spade",
       value: 10
     },
     {
       type: "Queen",
-      symbol: "Spade",
+      suit: "Spade",
       value: 10
     },
     {
       type: "King",
-      symbol: "Spade",
+      suit: "Spade",
       value: 10
     },
     {
       type: "Ace",
-      symbol: "Heart",
+      suit: "Heart",
       value: 11
     },
     {
       type: "Two",
-      symbol: "Heart",
+      suit: "Heart",
       value: 2
     },
     {
       type: "Three",
-      symbol: "Heart",
+      suit: "Heart",
       value: 3
     },
     {
       type: "Four",
-      symbol: "Heart",
+      suit: "Heart",
       value: 4
     },
     {
       type: "Five",
-      symbol: "Heart",
+      suit: "Heart",
       value: 5
     },
     {
       type: "Six",
-      symbol: "Heart",
+      suit: "Heart",
       value: 6
     },
     {
       type: "Seven",
-      symbol: "Heart",
+      suit: "Heart",
       value: 7
     },
     {
       type: "Eight",
-      symbol: "Heart",
+      suit: "Heart",
       value: 8
     },
     {
       type: "Nine",
-      symbol: "Heart",
+      suit: "Heart",
       value: 9
     },
     {
       type: "Ten",
-      symbol: "Heart",
+      suit: "Heart",
       value: 10
     },
     {
       type: "Jack",
-      symbol: "Heart",
+      suit: "Heart",
       value: 10
     },
     {
       type: "Queen",
-      symbol: "Heart",
+      suit: "Heart",
       value: 10
     },
     {
       type: "King",
-      symbol: "Heart",
+      suit: "Heart",
       value: 10
     },
     {
       type: "Ace",
-      symbol: "Clubs",
+      suit: "Clubs",
       value: 11
     },
     {
       type: "Two",
-      symbol: "Clubs",
+      suit: "Clubs",
       value: 2
     },
     {
       type: "Three",
-      symbol: "Clubs",
+      suit: "Clubs",
       value: 3
     },
     {
       type: "Four",
-      symbol: "Clubs",
+      suit: "Clubs",
       value: 4
     },
     {
       type: "Five",
-      symbol: "Clubs",
+      suit: "Clubs",
       value: 5
     },
     {
       type: "Six",
-      symbol: "Clubs",
+      suit: "Clubs",
       value: 6
     },
     {
       type: "Seven",
-      symbol: "Clubs",
+      suit: "Clubs",
       value: 7
     },
     {
       type: "Eight",
-      symbol: "Clubs",
+      suit: "Clubs",
       value: 8
     },
     {
       type: "Nine",
-      symbol: "Clubs",
+      suit: "Clubs",
       value: 9
     },
     {
       type: "Ten",
-      symbol: "Clubs",
+      suit: "Clubs",
       value: 10
     },
     {
       type: "Jack",
-      symbol: "Clubs",
+      suit: "Clubs",
       value: 10
     },
     {
       type: "Queen",
-      symbol: "Clubs",
+      suit: "Clubs",
       value: 10
     },
     {
       type: "King",
-      symbol: "Clubs",
+      suit: "Clubs",
       value: 10
     },
     {
       type: "Ace",
-      symbol: "Diamond",
+      suit: "Diamond",
       value: 11
     },
     {
       type: "Two",
-      symbol: "Diamond",
+      suit: "Diamond",
       value: 2
     },
     {
       type: "Three",
-      symbol: "Diamond",
+      suit: "Diamond",
       value: 3
     },
     {
       type: "Four",
-      symbol: "Diamond",
+      suit: "Diamond",
       value: 4
     },
     {
       type: "Five",
-      symbol: "Diamond",
+      suit: "Diamond",
       value: 5
     },
     {
       type: "Six",
-      symbol: "Diamond",
+      suit: "Diamond",
       value: 6
     },
     {
       type: "Seven",
-      symbol: "Diamond",
+      suit: "Diamond",
       value: 7
     },
     {
       type: "Eight",
-      symbol: "Diamond",
+      suit: "Diamond",
       value: 8
     },
     {
       type: "Nine",
-      symbol: "Diamond",
+      suit: "Diamond",
       value: 9
     },
     {
       type: "Ten",
-      symbol: "Diamond",
+      suit: "Diamond",
       value: 10
     },
     {
       type: "Jack",
-      symbol: "Diamond",
+      suit: "Diamond",
       value: 10
     },
     {
       type: "Queen",
-      symbol: "Diamond",
+      suit: "Diamond",
       value: 10
     },
     {
       type: "King",
-      symbol: "Diamond",
+      suit: "Diamond",
       value: 10
     }
   ],
