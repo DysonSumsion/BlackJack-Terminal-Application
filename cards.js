@@ -1,4 +1,4 @@
-const deck = {
+exports.deck = {
   cards: [{
       type: "Ace",
       symbol: "Spade",
@@ -270,16 +270,15 @@ const deck = {
     }
     this.cards = afterShuffle;
     // console.log(`Number of Cards: ${this.cards.length}`);
-    return this.cards
   },
   deal(){
     draw = this.cards.pop();
-    console.log(draw);
-    console.log(this.cards.length);
+    // console.log(draw);
+    // console.log(this.cards.length);
     return draw;
   }
 }
 
-deck.shuffle();
-deck.deal();
-deck.deal();
+// deck.shuffle();
+// deck.deal();
+// deck.deal();
