@@ -37,10 +37,9 @@ const stand = (cards, playerHand, dealerHand) => {
             dealerHand = hand
             if(getTotal(hand) < 17){
                 hand.push(cards.deck.deal()) 
+                stand(cards, playerHand, hand)
             }
-            else{
-                stand(cards, playerHand, hand);
-            }
+            stand(cards, playerHand, hand);
         }
         else{
             console.log("Dealer Bust!");
@@ -50,6 +49,11 @@ const stand = (cards, playerHand, dealerHand) => {
     }
     else if(getTotal(dealerHand) == getTotal(playerHand)){
         console.log("Push");
+        console.log(`Dealer Total: ${getTotal(dealerHand)}`);
+        console.log(`Player Total: ${getTotal(playerHand)}`);
+    }
+    else if(getTotal(dealerHand) > 21){
+        console.log("Dealer Bust!");
         console.log(`Dealer Total: ${getTotal(dealerHand)}`);
         console.log(`Player Total: ${getTotal(playerHand)}`);
     }
