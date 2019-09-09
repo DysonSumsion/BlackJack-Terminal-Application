@@ -1,9 +1,20 @@
-const cards = require('./cards')
 const readlineSync = require('readline-sync');
+let cards = require('./cards')
 cards.deck["shuffle"]();
 let option = ["Deal"]
 let playerHand = []
 let dealerHand = []
+const checkAce = (hand) => {
+    //modify the value of ace
+    result = [];
+    hand.forEach( (card) =>{
+        if(card["type"] == "Ace"){
+            card["value"] = 1;
+        };
+        result.push(card);
+    });
+    return result;
+}
 const getTotal = (hand) => {
     handTotal = hand.reduce((total, currentHand) => {
         total += currentHand.value
@@ -18,10 +29,23 @@ const stand = (cards, playerHand, dealerHand) => {
         console.log(dealerHand);
         console.log(`Total: ${getTotal(dealerHand)}`);
     }
+    
     if(getTotal(dealerHand) > 21){
-        console.log("Dealer Bust!");
-        console.log(`Dealer Total: ${getTotal(dealerHand)}`);
-        console.log(`Player Total: ${getTotal(playerHand)}`);
+        console.log("Ace revert");
+        if({type: "Ace" in dealerHand}){
+            hand = checkAce(dealerHand)
+            if(getTotal(hand) < 17){
+               hand.push(cards.deck.deal()) 
+            }
+            else{
+                stand(cards, playerHand, hand);
+            }
+        }
+        else{
+            console.log("Dealer Bust!");
+            console.log(`Dealer Total: ${getTotal(dealerHand)}`);
+            console.log(`Player Total: ${getTotal(playerHand)}`);
+        }
     }
     else if(getTotal(dealerHand) == getTotal(playerHand)){
         console.log("Push");
@@ -53,7 +77,18 @@ const hitOrStand = (cards, hand) => {
             hitOrStand(cards, hand)
         }
         else{
-            console.log("Bust!, Dealer win");
+            if({type: "Ace" in hand}){
+                hand = checkAce(dealerHand)
+                if(getTotal(hand) <= 21){
+                    hitOrStand(cards, hand);
+                }
+                else{
+                    stand(cards, hand, dealerHand);
+                }
+            }
+            else {
+                console.log("Bust!, Dealer win");
+            }
         }
     }
     input = readlineSync.keyInSelect(["Hit", "Stand"], "Would you like to hit or stand? ")
