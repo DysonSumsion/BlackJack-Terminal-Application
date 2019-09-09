@@ -31,11 +31,12 @@ const stand = (cards, playerHand, dealerHand) => {
     }
     
     if(getTotal(dealerHand) > 21){
-        console.log("Ace revert");
-        if({type: "Ace" in dealerHand}){
+        // console.log("Ace revert");
+        if(dealerHand.some((card) => {return card.type == "Ace"})){
             hand = checkAce(dealerHand)
+            dealerHand = hand
             if(getTotal(hand) < 17){
-               hand.push(cards.deck.deal()) 
+                hand.push(cards.deck.deal()) 
             }
             else{
                 stand(cards, playerHand, hand);
@@ -52,12 +53,13 @@ const stand = (cards, playerHand, dealerHand) => {
         console.log(`Dealer Total: ${getTotal(dealerHand)}`);
         console.log(`Player Total: ${getTotal(playerHand)}`);
     }
-    else if(getTotal(dealerHand) > getTotal(playerHand)){
+    else if(getTotal(dealerHand) > getTotal(playerHand) && getTotal(dealerHand) <= 21){
+        console.log(dealerHand);
         console.log("Dealer win!");
         console.log(`Dealer Total: ${getTotal(dealerHand)}`);
         console.log(`Player Total: ${getTotal(playerHand)}`);
     }
-    else{
+    else if(getTotal(dealerHand) < getTotal(playerHand) && getTotal(playerHand) <= 21){
         console.log("Player win!");
         console.log(`Player Total: ${getTotal(playerHand)}`);
         console.log(`Dealer Total: ${getTotal(dealerHand)}`);
@@ -66,27 +68,40 @@ const stand = (cards, playerHand, dealerHand) => {
 const hitOrStand = (cards, hand) => {
     const hit = (cards, hand) => {
         hand.push(cards.deck.deal());
-        console.log("Player Hand :");
-        console.log(playerHand);
-        playerTotal = getTotal(hand)
-        console.log(`Player total: ${playerTotal}`);
-        if(playerTotal == 21){
-            stand(cards, playerHand, dealerHand)
+        if(getTotal(hand) == 21){
+            console.log("Player Hand :");
+            console.log(playerHand);
+            playerTotal = getTotal(hand)
+            console.log(`Player total: ${playerTotal}`);
+            stand(cards, hand, dealerHand)
         }
-        else if(playerTotal < 21){
+        else if(getTotal(hand) < 21){
+            console.log("Player Hand :");
+            console.log(playerHand);
+            playerTotal = getTotal(hand)
+            console.log(`Player total: ${playerTotal}`);
             hitOrStand(cards, hand)
         }
-        else{
-            if({type: "Ace" in hand}){
-                hand = checkAce(dealerHand)
+        else if (getTotal(hand) > 21){
+            if(hand.some((card) => {return card.type == "Ace"})){
+                hand = checkAce(hand)
                 if(getTotal(hand) <= 21){
+                    console.log("Player hand: ");
+                    console.log(hand);
+                    console.log(`Player total: ${getTotal(hand)}`);
+                    playerHand = hand
                     hitOrStand(cards, hand);
                 }
-                else{
+                else if(getTotal(hand) > 21){
+                    console.log("Player hand: ");
+                    console.log(hand);
+                    console.log(`Player total: ${getTotal(hand)}`);
                     stand(cards, hand, dealerHand);
                 }
             }
             else {
+                console.log("Player hand:");
+                console.log(hand);
                 console.log("Bust!, Dealer win");
             }
         }
