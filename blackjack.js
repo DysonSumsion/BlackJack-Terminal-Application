@@ -1,6 +1,9 @@
 const cards = require('./cards')
 const readlineSync = require('readline-sync');
-let option = ["Deal", "Quit"]
+cards.deck["shuffle"]();
+let option = ["Deal"]
+let playerHand = []
+let dealerHand = []
 const getTotal = (hand) => {
     handTotal = hand.reduce((total, currentHand) => {
         total += currentHand.value
@@ -9,7 +12,7 @@ const getTotal = (hand) => {
     return handTotal;
 }
 const stand = (cards, playerHand, dealerHand) => {
-    while(getTotal(dealerHand) <= 17){
+    while(getTotal(dealerHand) < 17){
         dealerHand.push(cards.deck.deal())
         console.log("Dealer hand: ");
         console.log(dealerHand);
@@ -17,15 +20,23 @@ const stand = (cards, playerHand, dealerHand) => {
     }
     if(getTotal(dealerHand) > 21){
         console.log("Dealer Bust!");
+        console.log(`Dealer Total: ${getTotal(dealerHand)}`);
+        console.log(`Player Total: ${getTotal(playerHand)}`);
     }
     else if(getTotal(dealerHand) == getTotal(playerHand)){
         console.log("Push");
+        console.log(`Dealer Total: ${getTotal(dealerHand)}`);
+        console.log(`Player Total: ${getTotal(playerHand)}`);
     }
     else if(getTotal(dealerHand) > getTotal(playerHand)){
         console.log("Dealer win!");
+        console.log(`Dealer Total: ${getTotal(dealerHand)}`);
+        console.log(`Player Total: ${getTotal(playerHand)}`);
     }
     else{
         console.log("Player win!");
+        console.log(`Player Total: ${getTotal(playerHand)}`);
+        console.log(`Dealer Total: ${getTotal(dealerHand)}`);
     }
 }
 const hitOrStand = (cards, hand) => {
@@ -36,7 +47,7 @@ const hitOrStand = (cards, hand) => {
         playerTotal = getTotal(hand)
         console.log(`Player total: ${playerTotal}`);
         if(playerTotal == 21){
-            stand()
+            stand(cards, playerHand, dealerHand)
         }
         else if(playerTotal < 21){
             hitOrStand(cards, hand)
@@ -58,9 +69,8 @@ const hitOrStand = (cards, hand) => {
     }
 }
 const play = () => {
-    playerHand = []
-    dealerHand = []
-    cards.deck["shuffle"]();
+    dealerHand = []; 
+    playerHand = [];
     playerHand.push(cards.deck.deal());
     dealerHand.push(cards.deck.deal());
     playerHand.push(cards.deck.deal());
@@ -80,13 +90,17 @@ const main = () => {
     switch (input) {
         case 0:
             play();
-            break;
-        case 1:
-            stand();
-            break;
+            main();
         case -1:
-            console.log("Quit");
             break;
     }
 }
+
+
+// while(true) {
+//     main()
+//     if (option == -1) {
+//         break;
+//     }
+// }
 main()
